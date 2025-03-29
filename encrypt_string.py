@@ -96,10 +96,11 @@ def encrypt_code(code):
             variable_counter += 1
             
             # declare and assign, c1, c2, xor
-            new_code.append(f"char {c1_var_counter}[] = {code_from_char_array(c1)};")
-            new_code.append(f"char {c2_var_counter}[] = {code_from_char_array(c2)};")
+            # to improve: add indentation, put all in one line so its neater
+            new_code.append(f"const char {c1_var_counter}[] = {code_from_char_array(c1)};")
+            new_code.append(f"const char {c2_var_counter}[] = {code_from_char_array(c2)};")
             new_code.append(f"char {xor_var_counter}[{text_len+1}];")
-            new_code.append(f"OTP_Cipher({c1_var_counter}, {c2_var_counter},{text_len}, {xor_var_counter});")
+            new_code.append(f"OTP_Cipher({c1_var_counter}, {c2_var_counter}, {text_len}, {xor_var_counter});")
             new_code.append("".join((left,xor_var_counter,right)))
     
     return new_code
