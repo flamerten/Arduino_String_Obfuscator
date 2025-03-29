@@ -108,7 +108,7 @@ def encrypt_code(code):
 if __name__ == "__main__":
     args = sys.argv
     if len(sys.argv) < 2:
-        print("Usage: python encrypt_string.py <file.ino")
+        print("Usage: python encrypt_string.py <target.ino>")
         sys.ext(1)
         
     ino_filepath = args[1]
@@ -116,7 +116,7 @@ if __name__ == "__main__":
         orig_code = f.read()
         orig_code_split = orig_code.split("\n")
         
-    new_ino_filepath = "new" + ino_filepath
+    new_ino_filepath = "new_" + ino_filepath
     with open(new_ino_filepath, 'w') as f:
         for line in encrypt_code(orig_code_split):
             f.write(line + "\n")

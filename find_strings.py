@@ -1,3 +1,9 @@
+"""
+Finds strings from .ino hex files, which can be attained via Arduino -> Export 
+Compiled Binary
+"""
+
+
 import sys
 import re
 from intelhex import IntelHex
