@@ -102,6 +102,7 @@ def encrypt_code(code):
             new_code.append(f"char {xor_var_counter}[{text_len+1}];")
             new_code.append(f"OTP_Cipher({c1_var_counter}, {c2_var_counter}, {text_len}, {xor_var_counter});")
             new_code.append("".join((left,xor_var_counter,right)))
+            new_code.append(f"memset({xor_var_counter}, 0, sizeof({xor_var_counter}));")
     
     return new_code
 

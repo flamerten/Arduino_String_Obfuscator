@@ -28,11 +28,12 @@ void setup() {
   // initialize digital pin LED_BUILTIN as an output.
   pinMode(LED_BUILTIN, OUTPUT);
 
-const char c0[] = {134,192,106,69,251,131,33,169,200,134,208,209,8,196,135,141,55,47,132,235,225,61,183,159,92,44,136,242,65,199,138,6,74};
-const char c1[] = {238,165,6,41,148,163,86,198,186,234,180,241,123,161,245,228,86,67,164,155,142,79,195,191,53,95,168,195,112,242,184,54,122};
+const char c0[] = {1,83,252,130,94,45,243,44,206,89,239,158,154,206,182,43,82,150,23,59,118,250,191,74,130,243,14,11,193,197,55,210,102};
+const char c1[] = {105,54,144,238,49,13,132,67,188,53,139,190,233,171,196,66,51,250,55,75,25,136,203,106,235,128,46,58,240,240,5,226,86};
 char xor2[34];
 OTP_Cipher(c0, c1, 33, xor2);
   Serial.println(xor2);
+memset(xor2, 0, sizeof(xor2));
 
   Serial.begin(115200);
   
@@ -46,15 +47,17 @@ void loop() {
   digitalWrite(LED_BUILTIN, LOW);    // turn the LED off by making the voltage LOW
   delay(1000);                       // wait for a second
 
-const char c3[] = {42,241,29,245,59,76,175,125,148,208,226};
-const char c4[] = {66,148,113,153,84,108,216,18,230,188,134};
+const char c3[] = {194,176,206,129,106,117,175,250,203,134,148};
+const char c4[] = {170,213,162,237,5,85,216,149,185,234,240};
 char xor5[12];
 OTP_Cipher(c3, c4, 11, xor5);
   Serial.println(xor5);
-const char c6[] = {111,117,160,32,72,95,51};
-const char c7[] = {2,12,128,78,41,50,86};
+memset(xor5, 0, sizeof(xor5));
+const char c6[] = {253,228,127,132,179,189,16};
+const char c7[] = {144,157,95,234,210,208,117};
 char xor8[8];
 OTP_Cipher(c6, c7, 7, xor8);
   Serial.println(xor8);
+memset(xor8, 0, sizeof(xor8));
 }
 
